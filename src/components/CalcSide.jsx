@@ -13,6 +13,8 @@ const CalcSide = function () {
         { id: 5, value: 50 },
     ];
 
+    const allButtons = document.querySelectorAll('.percent-button');
+
     const [billAmount, setBillAmount] = useState('');
     const [personNumber, setPersonNumber] = useState('');
     const [error, setError] = useState(false);
@@ -53,7 +55,6 @@ const CalcSide = function () {
     }
 
     const percentClickHandler = function (e) {
-        const allButtons = document.querySelectorAll('.percent-button');
         allButtons.forEach(eachBtn => {
             eachBtn.classList.remove('active');
         });
@@ -66,6 +67,9 @@ const CalcSide = function () {
         setPersonNumber('');
         setError(false);
         setTipPercent('');
+        allButtons.forEach(eachBtn => {
+            eachBtn.classList.remove('active');
+        });
     }
 
     return (<React.Fragment>
